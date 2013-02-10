@@ -1,0 +1,26 @@
+<div class="hero-unit span4">
+  <h1>Players:</h1>
+  <table class="table table-striped">
+  	<thead>
+      <th>Delete</th>
+  		<th>Name</th>
+  		<th>Score</th>
+      <th></th>
+      <th></th>
+  	</thead>
+  	<tbody>
+  		<tr ng-repeat="player in players">
+  			<td><input type="checkbox" ng-model="player.delete"></td>
+  			<td class="{{player.delete}}">{{player.name}}</td>
+  			<td>{{getPlayerScore(player)}}</td>
+  			<td><button class="btn" ng-click="incrementScore(player)">+</button></td>
+  			<td><button class="btn" ng-click="decrementScore(player)">-</button></td>  		</tr>
+  	</tbody>
+  </table>
+  <form class="form-horizontal">
+  	<input type="text" ng-model="formPlayerName" ng-model-instant>
+  	<button class="btn" ng-click="addPlayer()"><i class="icon-plus"></i>Add player</button>
+  </form>
+
+  <button class="btn-large" ng-click="removePlayers()">Delete players</button>
+</div>
